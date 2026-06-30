@@ -4,4 +4,8 @@ google-cloud-translate
 google-cloud-texttospeech
 transformers
 moviepy
-
+googletrans==4.0.0-rc1
+PyMuPDF
+docx2txt
+vosk
+werkzeug
