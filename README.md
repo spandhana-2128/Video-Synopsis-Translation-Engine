@@ -1,59 +1,61 @@
-A web application that takes YouTube videos and generates concise summaries along with dubbed audio in a target language. Built with Flask and powered by speech recognition and AI summarization, it helps users quickly grasp video content without watching the full length, or consume it in a different language.
+# Cross-Lingual Video Summarizer
 
-Features
+A Flask web application offering three video/document AI tools in one platform: video dubbing into a target language, YouTube video summarization with translation, and smart document translation (PDF/Word). It helps users consume video and document content faster, or in a different language.
 
+## Features
 
-YouTube Video Input — Accepts a YouTube URL and processes the video/audio
-Speech-to-Text — Transcribes spoken audio using Vosk
-AI Summarization — Condenses transcribed content into a short, readable summary
-Audio Dubbing — Converts and dubs the summarized/translated content into a target language
-Web Interface — Simple Flask-based UI for submitting videos and viewing/listening to results
+- **Dub Now** — Upload a video or paste a YouTube link, transcribe speech with Vosk, and dub it into a target language
+- **Summarize Now** — Paste a YouTube URL to get an AI-generated summary, with an optional translated version
+- **Smart Translate** — Upload a PDF or Word document and get a translated text output (via PyMuPDF / docx2txt + Google Translate)
 
+## Tech Stack
 
-Tech Stack
+- **Backend:** Python, Flask
+- **Speech Recognition:** Vosk (`vosk-model-small-en-us-0.15`, included in the repo)
+- **Translation:** `googletrans`
+- **Document Parsing:** PyMuPDF (`fitz`) for PDFs, `docx2txt` for Word docs
+- **Frontend:** HTML, JS, CSS (Flask templates: `index.html`, `dubnow.html`, `summarizenow.html`, `smarttranslate.html`)
 
+## Installation
 
-Backend: Python, Flask
-Speech Recognition: Vosk
-Summarization/Translation: AI/NLP models
-Frontend: HTML, CSS, JS (Flask templates)
+1. Clone the repository
+   ```bash
+   git clone https://github.com/spandhana-2128/Video-Synopsis-Translation-Engine.git
+   cd Video-Synopsis-Translation-Engine
+   ```
 
-
-Installation
-
-
-Clone the repository
-
-
-bash   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
-
-
-Create a virtual environment and install dependencies
-
-
-bash   python -m venv venv
+2. Create a virtual environment and install dependencies
+   ```bash
+   python -m venv venv
    source venv/bin/activate   # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
+   ```
+
+3. The Vosk model (`vosk-model-small-en-us-0.15`) is already included in the repo — no separate download needed.
+
+4. Run the app
+   ```bash
+   python app.py
+   ```
+
+5. Open `http://localhost:5000` in your browser
+
+> Note: `requirements.txt` may not list every dependency actually imported in the code (e.g. `googletrans`, `PyMuPDF`, `docx2txt`). If you hit `ModuleNotFoundError` on a fresh install, run `pip install googletrans==4.0.0-rc1 PyMuPDF docx2txt` and add them to `requirements.txt`.
+
+## Deployment Notes
+
+This app requires more RAM than most free-tier hosting platforms (e.g. Render, Railway free tier) provide, due to Vosk's memory footprint during transcription. **Hugging Face Spaces** is recommended as a more suitable free hosting option for this reason.
+
+## Usage
+
+**Dubbing:** Go to "Dub Now," provide a video file or YouTube URL plus source/target language, and download the dubbed video once processing completes.
+
+**Summarization:** Go to "Summarize Now," paste a YouTube URL and target language, and view the English summary plus its translation.
+
+**Document Translation:** Go to "Smart Translate," upload a PDF or Word document, choose a target language, and download/view the translated text output.
 
 
-Download the required Vosk model and place it in the appropriate directory (see /models or update path in config)
-Run the app
 
+## License
 
-bash   python app.py
-
-
-Open http://localhost:5000 in your browser
-
-
-Deployment Notes
-
-This app requires more RAM than most free-tier hosting platforms (e.g. Render, Railway free tier) provide, due to Vosk's memory footprint during transcription. Hugging Face Spaces is recommended as a more suitable free hosting option for this reason.
-
-Usage
-
-
-Paste a YouTube video URL into the input field
-Wait for the app to transcribe, summarize, and dub the content
-View the summary and play/download the dubbed audio
+Specify your license here (e.g. MIT).
