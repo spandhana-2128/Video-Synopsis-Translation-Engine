@@ -46,16 +46,7 @@ A Flask web application offering three video/document AI tools in one platform: 
 
 This app requires more RAM than most free-tier hosting platforms (e.g. Render, Railway free tier) provide, due to Vosk's memory footprint during transcription. **Hugging Face Spaces** is recommended as a more suitable free hosting option for this reason.
 
-## Usage
-
-**Dubbing:** Go to "Dub Now," provide a video file or YouTube URL plus source/target language, and download the dubbed video once processing completes.
-
-**Summarization:** Go to "Summarize Now," paste a YouTube URL and target language, and view the English summary plus its translation.
-
-**Document Translation:** Go to "Smart Translate," upload a PDF or Word document, choose a target language, and download/view the translated text output.
 
 
 
-## License
 
-Specify your license here (e.g. MIT).
