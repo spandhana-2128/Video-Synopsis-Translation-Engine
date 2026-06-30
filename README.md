@@ -1,4 +1,4 @@
-# Cross-Lingual Video Summarizer
+# Video-Synopsis-Translation-Engine
 
 A Flask web application offering three video/document AI tools in one platform: video dubbing into a target language, YouTube video summarization with translation, and smart document translation (PDF/Word). It helps users consume video and document content faster, or in a different language.
 
