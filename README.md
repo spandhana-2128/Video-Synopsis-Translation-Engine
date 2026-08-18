@@ -18,7 +18,7 @@ A Flask web application offering three video/document AI tools in one platform: 
 
 ## Installation
 
-1. Clone the repository
+1. Clone the repository :)
    ```bash
    git clone https://github.com/spandhana-2128/Video-Synopsis-Translation-Engine.git
    cd Video-Synopsis-Translation-Engine
